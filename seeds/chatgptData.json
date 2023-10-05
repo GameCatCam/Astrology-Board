@@ -1,0 +1,28 @@
+[
+  {
+    "chat_name": "Chat GPT 1",
+    "chat_prompt": "Chat GPT prompt 1",
+    "chat_response": "Chat GPT Reponse 1",
+    "date_created": "April 20, 2021 07:00:00",
+    "password": "password12345",
+    "user_id": 1
+   },
+   {
+    "chat_name": "Chat GPT 2",
+    "chat_prompt": "Chat GPT prompt 2",
+    "chat_response": "Chat GPT Reponse 2",
+    "date_created": "April 20, 2022 07:00:00",
+    "password": "password12345",
+    "user_id": 2
+   },
+   {
+    "chat_name": "Chat GPT 3",
+    "chat_prompt": "Chat GPT prompt 3",
+    "chat_response": "Chat GPT Reponse 3",
+    "date_created": "April 20, 2023 07:00:00",
+    "password": "password12345",
+    "user_id": 3
+   }
+
+]
+
