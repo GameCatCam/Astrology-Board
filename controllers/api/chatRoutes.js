@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { ChatGpt, ChatQuestion } = require('../../models');
-// const withAuth = require('../../utils/auth'); (Add once implemented)
+const withAuth = require('../../utils/auth');
 
-router.post('/', /*withAuth,*/ async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newChat = await ChatGpt.create({
             ...req.body,
@@ -15,7 +15,7 @@ router.post('/', /*withAuth,*/ async (req, res) => {
     }
 })
 
-router.post('/:id', /*withAuth,*/ async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
     try {
         const newQuestion = await ChatQuestion.create({
             ...req.body,
@@ -29,7 +29,7 @@ router.post('/:id', /*withAuth,*/ async (req, res) => {
     }
 })
 
-router.delete('/:id', /*withAuth(),*/ async (req, res) => {
+router.delete('/:id', withAuth(), async (req, res) => {
     try {
         const chatData = await ChatGpt.destroy({
             where: {
