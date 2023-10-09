@@ -19,7 +19,8 @@ router.post('/:id', /*withAuth,*/ async (req, res) => {
     try {
         const newQuestion = await ChatQuestion.create({
             ...req.body,
-            user_id: req.session.user_id,
+            chat_id: req.params.id,
+
         })
 
         res.status(200).json(newQuestion)
