@@ -15,15 +15,15 @@ router.get('/', async (req, res) => {
       ]
 
     });
-    res.status(200).json(chatData);
+    //res.status(200).json(chatData);
     // Serialize data so the template can read it
     const chats = chatData.map((chat) => chat.get({ plain: true }));
     console.log("*************************************homeroutes.js chats:" + JSON.stringify(chats))
     // Pass serialized data and session flag into template
-  //  res.render('homepage', { 
-  //    chats, 
-  //    logged_in: req.session.logged_in 
-  //  });
+    res.render('homepage', { 
+      chats, 
+      logged_in: req.session.logged_in 
+    });
   } catch (err) {
     res.status(500).json(err);
   }
