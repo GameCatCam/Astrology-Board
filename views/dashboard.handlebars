@@ -1,43 +1,42 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome {{user}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a Chat:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-chat-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="chat-name">Chat name:</label>
+        <input class="form-input" type="text" id="chat-name" name="chat-name" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        <label for="chat-prompt">Chat Prompt:</label>
+        <textarea class="form-input" id="chat-question" name="chat-prompt"></textarea>
       </div>
       <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+            <div class="form-group">
+        <label for="chat-response">Chat Response:</label>
+        <textarea class="form-input" id="chat-response" name="chat-response"></textarea>
       </div>
     </form>
   </div>
+  {{#if chatgpts.length}}
+  <div class="col-md-6 chat-list">
+    <h3>Current Chats:</h3>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
-
-    {{#each projects as |project|}}
+    {{#each chatgpts as |chatgpt|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/chat/{{chatgpt.id}}">{{chatgpt.chat_name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{chatgpt.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -45,4 +44,5 @@
   {{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+
+<script src="./js/dashboard.js"></script>

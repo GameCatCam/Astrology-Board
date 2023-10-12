@@ -44,10 +44,12 @@ router.get('/dashboard/:id', async (req, res) => {
       ],
     });
 
-    const chat = chatData.get({ plain: true });
-    console.log("*************************************homeroutes.js /chat:id blogData", chat)
+    //res.status(200).json(chatData);
 
-    res.render('dashboard', {
+    const chat = chatData.get({ plain: true });
+    console.log("*************************************homeroutes.js /chat:id chatData", chat)
+
+    res.render('chat', {
       ...chat,
       logged_in: req.session.logged_in
     });
@@ -67,7 +69,9 @@ router.get('/dashboard/:id', async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log("*************************************homeroutes.js /chat:id user", user)
+
+    console.log("*************************************homeroutes.js /dashboard user", user)
+
     res.render('dashboard', {
       ...user,
       logged_in: true

@@ -5,7 +5,7 @@
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       {{{get_emoji}}}
-      <a href="/dashboard/{{chat.id}}">{{chat.chat_prompt}}</a>
+      <a href="/chat/{{chat.id}}">{{chat.chat_name}}</a>
     </h2>
 
     <p>Created by {{chat.user.user}} on {{format_date chat.date_created}}</p>

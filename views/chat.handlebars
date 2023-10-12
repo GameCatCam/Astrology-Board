@@ -1,0 +1,59 @@
+<div class="text-center">
+  <h2>{{chat_name}}</h2>
+  <!-- <p>{{{get_emoji}}}</p> -->
+  
+    <form class="form update-prompt-form">
+      <div class="form-group">
+        <label for="update-prompt-id">Saved Chat Prompt:</label>
+        <input class= "prompt-input" type="text" id="update-prompt-id" value = "{{chat_prompt}}" data-updatepromptid={{id}} >
+      </div>
+      <div class="form-group">
+        <label for="update-prompt-id">chatGPT Response:</label>
+        <input class= "prompt-input" type="text" id="update-prompt-id" value = "{{chat_response}}" promptresponseid={{id}} >
+
+        <button class="btn btn-primary">Update Chat</button>
+      </div>
+    </form>
+
+
+
+    <form class="form comment-form">
+    <div class="form-group">
+        {{#if chatquestions.length}}
+          {{#each chatquestions as |chatquestion|}}
+          <div class="dish col-md-5">
+
+            <!--<p>Blog id: {{comment.blog_id}}</p> -->
+
+             
+            <p class = "form-input">{{chatquestion.chat_question}}</p>
+            
+            <p>
+             <!-- <input class = "form-input" type="text" id="comment-id-{{comment.id}}" value="{{comment.comment}}" /> -->
+            </p>
+           
+           </div>
+      
+       <div>
+          </div>
+          {{/each}}
+        {{/if}}
+    </div>
+    </form>
+
+    <form class="form new-prompt-form">
+      <div class="form-group">
+       <!-- <p>Blog id: {{id}}</p> -->
+        <label for="new-prompt-id">Add new Prompt:</label>
+        <input class= "prompt-input" type="text" id="new-prompt-id" data-promptid={{id}}>
+        <!--<input class= "comment-input" type="text" id="new-comment-id" />-->
+      </div>
+       <div>
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+
+</div>
+
+<script src="/js/chat.js"></script> 
