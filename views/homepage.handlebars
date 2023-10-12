@@ -1,6 +1,6 @@
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the chatgpt array -->
 {{#each chats as |chat| }}
-<div class="row mb-4 project">
+<div class="row mb-4 chatgpt">
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
@@ -10,9 +10,9 @@
 
     <p>Created by {{chat.user.user}} on {{format_date chat.date_created}}</p>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-7 response">
     <p>
-      {{chat.prompt}}
+      {{chat.chat_response}}
     </p>
   </div>
 </div>

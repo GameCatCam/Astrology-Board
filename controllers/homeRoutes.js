@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
       ]
 
     });
-    //res.status(200).json(chatData);
     // Serialize data so the template can read it
     const chats = chatData.map((chat) => chat.get({ plain: true }));
     console.log("*************************************homeroutes.js chats:" + JSON.stringify(chats))
@@ -29,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/chat/:id', async (req, res) => {
+router.get('/dashboard/:id', async (req, res) => {
   console.log("*************************************homeroutes.js /chat:id" + req)
   try {
     const chatData = await ChatGpt.findByPk(req.params.id, {
@@ -44,6 +43,7 @@ router.get('/chat/:id', async (req, res) => {
         },
       ],
     });
+
     //res.status(200).json(chatData);
 
     const chat = chatData.get({ plain: true });
@@ -59,7 +59,7 @@ router.get('/chat/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/dashboard', withAuth, async (req, res) => {
+/*router.get('/dashboard', withAuth, async (req, res) => {
   console.log("*************************************homeroutes.js /dashboard" + req)
   try {
     // Find the logged in user based on the session ID
@@ -69,7 +69,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+
     console.log("*************************************homeroutes.js /dashboard user", user)
+
     res.render('dashboard', {
       ...user,
       logged_in: true
@@ -77,13 +79,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}); */
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   console.log("*************************************homeroutes.js /login" + req)
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    res.redirect('/');
     return;
   }
 

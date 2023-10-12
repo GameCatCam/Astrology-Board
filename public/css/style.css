@@ -1,0 +1,46 @@
+:root {
+    --color1: #151531;
+    --color2: #421a92;
+    --color3: #404be3;
+    --color4: #39beff;
+    --color5: #c051ff;
+}
+
+body, html {
+    background-image: url("https://media.discordapp.net/attachments/424058611107364867/1162158982127951982/1328226.png?ex=653aebe5&is=652876e5&hm=15e1093fbf8a3cb3fcc7397f2d1db98fe9c897252cc8d946343af27236301d15&=&width=1206&height=676");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+header, footer{
+    background-color: var(--color2);
+    color: white;
+}
+
+body button {
+    background-color: var(--color5);
+}
+
+.logo {
+    background-color: var(--color1);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 10px 10px black;
+}
+
+.chatgpt {
+    background-color: var(--color3);
+    border-radius: 8px;
+}
+
+.response {
+    background-color: var(--color4);
+    border-radius: 8px;
+}
+
+#override {
+    position: fixed;
+    bottom: 0px;
+    min-width: 100%;
+}
