@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/dashboard/:id', async (req, res) => {
+router.get('/chat/:id', async (req, res) => {
   console.log("*************************************homeroutes.js /chat:id" + req)
   try {
     const chatData = await ChatGpt.findByPk(req.params.id, {
@@ -59,7 +59,7 @@ router.get('/dashboard/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-/*router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   console.log("*************************************homeroutes.js /dashboard" + req)
   try {
     // Find the logged in user based on the session ID
@@ -79,7 +79,7 @@ router.get('/dashboard/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}); */
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
