@@ -44,15 +44,15 @@ router.get('/chat/:id', async (req, res) => {
         },
       ],
     });
-    res.status(200).json(chatData);
+    //res.status(200).json(chatData);
 
     const chat = chatData.get({ plain: true });
-    console.log("*************************************homeroutes.js /chat:id blogData", chat)
+    console.log("*************************************homeroutes.js /chat:id chatData", chat)
 
- //   res.render('blog', {
- //     ...chat,
- //     logged_in: req.session.logged_in
- //   });
+    res.render('chat', {
+      ...chat,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -69,11 +69,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log("*************************************homeroutes.js /chat:id user", user)
- //   res.render('dashboard', {
- //     ...user,
- //     logged_in: true
- //   });
+    console.log("*************************************homeroutes.js /dashboard user", user)
+    res.render('dashboard', {
+      ...user,
+      logged_in: true
+    });
   } catch (err) {
     res.status(500).json(err);
   }

@@ -16,10 +16,10 @@ ChatGpt.init(
       allowNull: false,
     },
     chat_prompt: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000),
     },
     chat_response: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000),
     },
     date_created: {
       type: DataTypes.DATE,
