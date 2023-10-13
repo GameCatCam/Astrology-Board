@@ -39,6 +39,25 @@ body button {
     border-radius: 8px;
 }
 
+.user {
+    background-color: var(--color2);
+    border-top: 8px;
+}
+
+.chat-prompt {
+    background-color: var(--color3);
+    border-radius: 8px;
+}
+
+.chat-response {
+    background-color: var(--color4);
+    border-radius: 8px;
+}
+
+.text-area {
+    padding: 8px;
+}
+
 #override {
     position: fixed;
     bottom: 0px;
