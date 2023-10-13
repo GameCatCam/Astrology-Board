@@ -15,9 +15,10 @@
 
 ## Description
 
-Chatstrology is an application designed for users interested in learning more about astrology.
+Chatstrology is an application designed for users interested in learning more about astrology. It is powered through ChatGPT using lang-chain and allows a user to make and store prompts for later viewing.
 
 ## Task
+
 ```md
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time
@@ -53,9 +54,11 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 ```
+
 ## Installation
 
--
+- First, running this program requires Node.js and MySQL if you intend to download it for personal use. Other than that, every thing else needed for the program is included and all it requires is that you run "npm install" to install all the needed packages.
+- Additionally, lang-chain requires an api-key. The program includes dotenv capabilities, all you need to do is create a .env file and fill in the database name, username, password, and api-key for the program to use it.
 
 ## Usage
 
@@ -70,6 +73,7 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 -
 
 ## Contributors
+
 - Anthony Kahly
 - Alana Ragon
 - Jim Mcgreevy
@@ -78,5 +82,5 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 Note: This project was designed for the 2023 CWRU course, and it not currently accepting other contributors.
 
 ## Github
- 
- GitHub: https://github.com/GameCatCam/Astrology-Board
+
+GitHub: https://github.com/GameCatCam/Astrology-Board
