@@ -60,7 +60,7 @@ body button {
 }
 
 #override {
-    position: relative;
+    position: fixed;
     bottom: 0px;
     min-width: 100%;
 }
