@@ -21,6 +21,18 @@ ChatGpt.init(
     chat_response: {
       type: DataTypes.STRING(2000),
     },
+    chat_response_answer: {
+      type: DataTypes.STRING(2000),
+    },
+    chat_response_analysis: {
+      type: DataTypes.STRING(2000),
+    },
+    chat_response_context: {
+      type: DataTypes.STRING(2000),
+    },
+    chat_response_affirmation: {
+      type: DataTypes.STRING(2000),
+    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
