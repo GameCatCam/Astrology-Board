@@ -2,8 +2,8 @@
   <h2>{{chat_name}}</h2>
   <!-- <p>{{{get_emoji}}}</p> -->
   
-    <form class="form update-prompt-form">
-      <div class="form-group">
+    <!--<div class="form update-prompt-form">-->
+      <!--<div class="form-group">
         <label for="update-prompt-id">Saved Chat Prompt:</label>
         <input class= "prompt-input" type="text" id="update-prompt-id" value = "{{chat_prompt}}" data-updatepromptid={{id}} >
       </div>
@@ -25,37 +25,25 @@
         <label for="affirmation-id">chatGPT Response Affirmation:</label>
         <input class= "affirmation-input" type="text" id="affirmation-id" value = "{{chat_response_affirmation}}" data-affirmationid={{id}} >
       </div>
-    </form>
-
-
-
-    <form class="form comment-form">
-    <div class="form-group">
-        {{#if chatquestions.length}}
-          {{#each chatquestions as |chatquestion|}}
-          <div class="dish col-md-5">
-
-            <!--<p>Blog id: {{comment.blog_id}}</p> -->
-
-             
-            <p class = "form-input">{{chatquestion.chat_question}}</p>
-            
-            <p>
-             <!-- <input class = "form-input" type="text" id="comment-id-{{comment.id}}" value="{{comment.comment}}" /> -->
-            </p>
-           
-           </div>
-      
-       <div>
-          </div>
-          {{/each}}
-        {{/if}}
+      <div class="chat-response">
+        <h4 class="user">Chatstrology</h4>
+        <p class="text-area">{{chat_response}}</p>
+      </div>
     </div>
-    </form>
-
-
-
-
+    <div class="form comment-form">
+      {{#if chatquestions.length}}
+        {{#each chatquestions as |chatquestion|}}
+          <div class="chat-prompt">
+            <h4 class="user">User{{user.user}}</h4>
+            <p class="text-area">{{chat_question}}</p>
+          </div>
+          <div class="chat-response">
+            <h4 class="user">Chatstrology</h4>
+            <p class="text-area">{{chat_question_response}}</p>
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
 </div>
 
 <script src="/js/chat.js"></script> 
