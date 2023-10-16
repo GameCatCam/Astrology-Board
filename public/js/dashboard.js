@@ -25,22 +25,57 @@ const newFormHandler = async (event) => {
     const chat_response_object = gptResponse
     chat_response = chat_response_object
 
-    //******* end chatgpt */
+  
+   // parse out answer, analysis, context, and affirmation
+   const text = gptResponse
+
+const answerStart = text.indexOf("Answer:");
+const analysisStart = text.indexOf("Analysis:");
+const contextStart = text.indexOf("Context:");
+const affirmationStart = text.indexOf("Affirmation:");
+
+const chat_response_answer = text.substring(answerStart + 8, analysisStart).trim();
+const chat_response_analysis = text.substring(analysisStart + 10, contextStart).trim();
+const chat_response_context = text.substring(contextStart + 9, affirmationStart).trim();
+const chat_response_affirmation = text.substring(affirmationStart + 13).trim();
+
+console.log("Answer:", chat_response_answer);
+console.log("Analysis:", chat_response_analysis);
+console.log("Context:", chat_response_context);
+console.log("Affirmation:", chat_response_affirmation);
+
+
+
+
+
+
+
 
     console.log("*****************dashboard.js create chat:", chat_name);
     console.log("*****************dashboard.js create chat:", chat_prompt);
-    console.log("*****************dashboard.js create chat response:", chat_response);
+    console.log("*****************dashboard.js create chat response answer:", chat_response.answer);
     const response = await fetch(`/api/chats`, {
       method: 'POST',
-      body: JSON.stringify({ chat_name, chat_prompt, chat_response }),
+      body: JSON.stringify({ 
+        chat_name, 
+        chat_prompt,
+        chat_response,
+        chat_response_answer,
+        chat_response_analysis,
+        chat_response_context,
+        chat_response_affirmation}),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-
-      document.location.replace('/dashboard');
+      console.log("********************** dashboard.js create chat:", response)
+      const newChatId = await response.json();
+      const chatId = newChatId.id;
+      console.log("********************** dashboard.js create chat id:", chatId)
+      //document.location.replace('/dashboard');
+      document.location.replace('/chat/' + chatId);
     } else {
       alert('Failed to create chat');
     }

@@ -6,7 +6,7 @@ const { PromptTemplate } = require("langchain/prompts");
 const { StructuredOutputParser } = require("langchain/output_parsers");
 
 require('dotenv').config();
-console.log(process.env.OPENAI_API_KEY);
+//console.log(process.env.OPENAI_API_KEY);
 
 const chatGPTModel = new OpenAI({ 
   openAIApiKey: process.env.OPENAI_API_KEY, 
@@ -14,16 +14,55 @@ const chatGPTModel = new OpenAI({
   chatGPTModel: 'gpt-3.5-turbo'
 });
 
-console.log("****************chatgptRoutes.js openai model:", { chatGPTModel });
+//console.log("****************chatgptRoutes.js openai model:", { chatGPTModel });
+
+// With a `StructuredOutputParser` we can define a schema for the output.
+const parser = StructuredOutputParser.fromNamesAndDescriptions({
+  answer: "Provide a concise answer followed by a brief explanation.",
+  analysis: "Begin with a summary of the astrological sign or concept in question. Follow with a detailed analysis, and conclude with any relevant advice or insights.",
+  context: "Provide a brief historical context or origin of the astrological concept in question, followed by its current interpretation.",
+  affirmation: "End your response with a positive affirmation or motivational quote related to the astrological topic.",
+});
+const formatInstructions = parser.getFormatInstructions();
+
+
 
 
 router.post('/', async (req, res) => {
   console.log("*************************************chatgptRoutes.js /chat_prompt" + req.body.chat_prompt)
   try {
+
+    
+    console.log("*********************************** chatgptRoutes.js right before new PromptTemplate:");
+    
+    // const prompt = new PromptTemplate({
+    //  template: "You are astrology expert and will answer the user’s astrology questions thoroughly as possible.\n{format_instructions}\n{question}",
+    // inputVariables: ["question"],
+    // partialVariables: { format_instructions: formatInstructions }
+    // });
+
     const prompt = new PromptTemplate({
-      template: "You are astrology expert and will answer the user’s astrology questions thoroughly as possible.\n{question}",
-     inputVariables: ["question"],
-     });
+      template: `You are an astrology expert. Answer the following question and provide detailed insights.
+    Question: {question}
+    
+    Answer: Provide a concise answer followed by a brief explanation.
+    Analysis: Begin with a summary of the astrological sign or concept in question. Follow with a detailed analysis, and conclude with any relevant advice or insights.
+    Context: Provide a brief historical context or origin of the astrological concept in question, followed by its current interpretation.
+    Affirmation: End your response with a positive affirmation or motivational quote related to the astrological topic.`,
+      inputVariables: ["question"],
+      partialVariables: {}
+    });
+    
+
+
+
+
+
+
+
+
+
+    console.log("*********************************** chatgptRoutes.js right before prompt.format:");
      const promptInput = await prompt.format({
       question: req.body.chat_prompt
     });
