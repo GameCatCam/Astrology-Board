@@ -63,4 +63,5 @@ body button {
     position: fixed;
     bottom: 0px;
     min-width: 100%;
+    margin-top: 12px;
 }

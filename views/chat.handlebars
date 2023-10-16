@@ -1,48 +1,17 @@
 <div class="text-center">
-  <h2>{{chat_name}}</h2>
-  <!-- <p>{{{get_emoji}}}</p> -->
-  
-    <!--<div class="form update-prompt-form">-->
-      <!--<div class="form-group">
-        <label for="update-prompt-id">Saved Chat Prompt:</label>
-        <input class= "prompt-input" type="text" id="update-prompt-id" value = "{{chat_prompt}}" data-updatepromptid={{id}} >
-      </div>
-
-      <div class="form-group">
-        <label for="answer-id">chatGPT Response Answer:</label>
-        <input class= "answer-input" type="text" id="answer-id" value = "{{chat_response_answer}}" data-answerid={{id}} >
-      </div>
-      
-      <div class="form-group">
-        <label for="analysis-id">chatGPT Response Analysis:</label>
-        <input class= "analysis-input" type="text" id="analysis-id" value = "{{chat_response_analysis}}" data-analysisid={{id}} >
-      </div>
-      <div class="form-group">
-        <label for="context-id">chatGPT Response Context:</label>
-        <input class= "context-input" type="text" id="context-id" value = "{{chat_response_context}}" data-contextid={{id}} >
-      </div>
-      <div class="form-group">
-        <label for="affirmation-id">chatGPT Response Affirmation:</label>
-        <input class= "affirmation-input" type="text" id="affirmation-id" value = "{{chat_response_affirmation}}" data-affirmationid={{id}} >
+  <h2>{{chat_name}}</h2>  
+    <div class="form update-prompt-form">
+      <div class="chat-prompt">
+        <h4 class="user">{{user.user}}</h4>
+        <p class="text-area">{{chat_prompt}}</p>
       </div>
       <div class="chat-response">
         <h4 class="user">Chatstrology</h4>
-        <p class="text-area">{{chat_response}}</p>
+        <p class="text-area">{{chat_response_answer}}</p>
+        <p class="text-area">{{chat_response_analysis}}</p>
+        <p class="text-area">{{chat_response_context}}</p>
+        <p class="text-area">{{chat_response_affirmation}}</p>
       </div>
-    </div>
-    <div class="form comment-form">
-      {{#if chatquestions.length}}
-        {{#each chatquestions as |chatquestion|}}
-          <div class="chat-prompt">
-            <h4 class="user">User{{user.user}}</h4>
-            <p class="text-area">{{chat_question}}</p>
-          </div>
-          <div class="chat-response">
-            <h4 class="user">Chatstrology</h4>
-            <p class="text-area">{{chat_question_response}}</p>
-          </div>
-        {{/each}}
-      {{/if}}
     </div>
 </div>
 
