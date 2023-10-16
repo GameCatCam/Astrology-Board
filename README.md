@@ -62,7 +62,7 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 
 ## Usage
 
--
+- The main usage for this program is to learn about astrology and astral bodies.
 
 ## Licenses
 
@@ -70,7 +70,7 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 
 ## Tests
 
--
+- There are currently no tests for this project.
 
 ## Contributors
 
@@ -79,7 +79,7 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 - Jim Mcgreevy
 - Cameron Rawlins
 
-Note: This project was designed for the 2023 CWRU course, and it not currently accepting other contributors.
+Note: This project was designed for the 2023 CWRU course, and is not currently accepting other contributors.
 
 ## Github
 
