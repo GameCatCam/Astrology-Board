@@ -1,4 +1,4 @@
-const User = require('./user');
+const User = require('./User');
 const ChatGpt = require('./chatgpt');
 const ChatQuestion = require('./chatquestion');
 
