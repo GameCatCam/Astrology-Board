@@ -23,11 +23,19 @@ body button {
     background-color: var(--color5);
 }
 
+a {
+    color: white;
+}
+
 .logo {
     background-color: var(--color1);
     padding: 8px;
     border-radius: 8px;
     box-shadow: 10px 10px black;
+}
+
+.logo-text {
+    color: var(--color4);
 }
 
 .chatgpt {
@@ -38,6 +46,7 @@ body button {
 .response {
     background-color: var(--color4);
     border-radius: 8px;
+    color: black
 }
 
 .user {
@@ -55,13 +64,32 @@ body button {
     border-radius: 8px;
 }
 
+.chat-list {
+    background-color: var(--color2);
+    border-radius: 8px;
+}
+
 .text-area {
     padding: 8px;
 }
+
+.ai-response {
+    color: black;
+}
+
 
 #override {
     position: fixed;
     bottom: 0px;
     min-width: 100%;
     margin-top: 12px;
+}
+
+@media screen and (max-width: 400px) {
+    .logo {
+        font-size: medium
+    }
+    .nav-bar {
+        font-size: small;
+    }
 }
